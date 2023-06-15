@@ -1,0 +1,36 @@
+import java.util.ArrayList;
+
+public class Log {
+    private static Log instance;
+    private ArrayList<String> list;
+    private Log(){
+        list = new ArrayList<String>();
+    }
+    public static Log getInstance(){
+        if(instance == null){
+            instance = new Log();
+        }
+        return instance;
+    }
+    
+    void logMessage(String x){
+        list.add(x);
+    }
+    void showLog(){
+        System.out.println(list);
+    }
+    public static void main(String args[]) {
+    Log log = Log.getInstance();
+    
+    Log log1 = Log.getInstance();
+    log1.logMessage("1111");
+    
+    Log log2 = Log.getInstance();
+    log2.logMessage("2222");
+    
+    Log log3 = Log.getInstance();
+    log3.logMessage("3333");
+    
+    log3.showLog();
+    }
+}
